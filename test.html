@@ -1,0 +1,171 @@
+<!DOCTTYPE html>
+<html lang='ru'>
+
+  <head>
+    <meta charset='UTF-9'>
+      <title>Работа с массивами данных</title>
+      </head>
+<table>
+	<tr>
+		<th>
+			Name 
+		</th>
+		<th>
+			Age 
+		</th>
+	</tr>
+	<tr>
+		<td>
+			Bob
+		</td>
+		<td>
+			12
+		</td>
+	</tr>
+	<tr>
+		<td>
+			Ivan
+		</td>
+		<td>
+			44
+		</td>
+	</tr>
+</table>
+
+      <body>
+        <script>
+
+
+
+// const presidents = [
+//   {first: 'Georg', last: 'Wahington', born: 1739, died: 1799},
+//   {first: 'Jon', last: 'Adams', born: 1735, died: 1839},
+//   {first: 'Ronald', last: 'Reagan', born: 1904, died: 1987},
+//   {first: 'Gerald', last: 'Ford', born: 1936, died: 1976},
+//   {first: 'Richard', last: 'Nixon', born: 1913  , died: 1983},
+// ]
+
+// const writers =[
+//   'Delaware  Florida', 'Georgia Hawaii', 'Idaho Illinois', 'Indiana Iowa', 'Kansas Kentucky', 'Louisiana Maine', 'Maryland Massachusetts', 'Michigan Minnesota', 'Mississippi Missouri', 'Montana Nebraska Nevada', 'New Hampshire', 'New Jersey', 'New Mexico', 'New York', 'North Carolina', 'North Dakota', 'Ohio', 'Oklahoma', 'Oregon', 'Pennsylvania', 'Rhode Island', 'South Carolina', 'South Dakota', 
+// 'West Virginia'
+// ]
+
+// 1. Array.prototype.filter()
+// Отфильтровать президентов, которые родились в 1700х годах. c помощью инструмента filter
+
+// const born1700= presidents.filter(presidents => presidents.born >= 1700 && presidents.born <= 1800)  
+// console.table(born1700)
+
+// 2. Array.prototype.map()
+// Создать массив который содержит только имя и Фамилию. метод map сохраняет длингу массива, а filter может длину менять 
+
+// const firstLast = presidents.map(presidents => `${presidents.first}, ${presidents.last}`)
+// console.log(firstLast)
+
+// 3. Array.prototype.sort()
+// Отсортировать президентов по году рождения от старшего к младшему
+
+// const oldest = presidents.sort((a,b) => `${(a.born > b.born ? 1 : -1 )}`)
+// console.table(oldest)
+
+// 4. Array.prototype.reduce() - Его цель — взять массив и сжать его содержимое в одно значение.
+// Подсчитать общее количество лет жизни всех президентов
+// const totallived = presidents.reduce((total, president) =>  total + (president.died - president.born), 0)
+
+// вводим две переменные (total, president), к ним цепляем (president.died - president.born), разницу м\у родившимися и умершими возвращаем в total. При использовании метода reduce всегда задаем начальное значение 0
+// console.log(totallived)
+
+
+// 5. отсортировать президентов в зависимости от прожитых лет  от большего к меньшему 
+// const presidentSorted= presidents.sort((a,b) => {
+// 	// считаем сначало сколько лет жил каждый президент
+// 	const alived=a.died-a.born 
+// 	const blived=b.died-b.born 
+// 		return `${alived > blived ? -1 : 1}`
+// })
+// если alived > blived, то возврачаем, то что меньше (-1)
+// } else {
+// return 1;
+// })
+// console.table(presidentSorted)
+	
+	// 6. Создать список городов (city) и областей (country) содержащих слово san
+	//  https://en.wikipedia.org/wiki/List_of_municipalities_in_California
+
+	// const table = document.querySelector('.plainrowheaders');
+	// const links = Array.from(table.querySelector('tbody').querySelectorAll('a'));
+	// const names = links.map(link => link.textContent).filter(city => city.includes('San'))
+	// console.log(names)
+//  тоже самое, но с return:
+	// const table = document.querySelector('.plainrowheaders');
+	// const links = Array.from(table.querySelector('tbody').querySelectorAll('a'));
+	// const names = links.map(link => {
+	// 	return link.textContent;
+	// }).filter(city => {
+	// 	return city.includes('San')
+	// })
+	// console.log(names)
+
+// 7. Отсортировать массив 'writers' по ФИО в алфавитном порядке 
+
+// const writersName = writers.sort((writerA, writerB) => {
+// 	// нужно осуществить разделение текста, чтобы получить имя и фамилию в две разные переменные,  используя split(', '), для этого нужно сделать деструктурирование через first\last
+// 	const [firstA, lastA]= writerA.split(', '); 
+// 	const [firstB, lastB]= writerB.split(', ');
+// return `${lastA > lastB ? -1: 1}`
+// })
+// console.table(writersName)
+
+// 8. Reduce
+// посчитать ск раз встречается каждый элемент в массиве
+// const data = ['apple', 'bananes', 'juss', 'truck', 'bike', 'bananes', 'juss', 'orange', 'apricots', 'juss', 'juss', 'juss']
+// const dataCount = data.reduce((object, item) =>  {
+// 	if (!object[item]) {
+// 		object[item] = 0 
+// 		// на первом обходе приравниваем значение 0 первому встреченному элементу
+// 	}
+// 	object[item]= object[item] + 1 
+// 	// при втором проходе, если встречаем еще раз тот же элемент, то присваеваем ему значение +1, те уже будет не 0, а 1. При третем проходе, если еще раз встречается тот же элемент, то еще раз +1 и уже будет 2
+// 	// можно строку записать проще : object[item]++;
+// 	return object 
+// 	// при исп метода reduce всегда возвращаем финальный обьект 
+// } , {})
+// console.log(dataCount)
+
+// посчитать суммму денег на счетах 
+// const banAccount = [
+//   {id: '123', ammount: 30},
+//   {id: '6523', ammount: 321},
+//   {id: '61003', ammount: 3081},
+//   {id: '603', ammount: 81},
+// ]
+// const totalAmmaunt = banAccount.reduce(function(sum, curentAccount) {
+//   return sum+curentAccount.ammount
+// },0)
+// console.log(totalAmmaunt)
+
+// Метод reduce() принимает (где return) два параметра: функцию-колбэк (sum+curentAccount.ammount) и начальное значение для аккумулятора (0).
+// Сама функция-колбэк может принимать четыре параметра:
+//1  acc — текущее значение аккумулятора; (sum) 
+//2  item — элемент массива в текущей итерации; (curentAccount)
+//3  index — индекс текущего элемента;
+//4  arr — сам массив, который мы перебираем.
+
+// 9. Использование forEach, Object.Keys() . Создать массив, который будет содержать только уникальные значения массива
+// const data = ['apple', 'bananes', 'juss', 'truck', 'bike', 'bananes', 'juss', 'orange', 'apricots', 'juss', 'juss', 'juss']
+
+// const uniqueFructs = {}
+// data.forEach((data)=> {
+// 	uniqueFructs[data]= true
+// 	// при первом обходе мы встречаем apple и ему присваиваем значение true, так же по всем остальным элементом. И на выходе мы получаем копию массива из уникальных элементов. Ничего не дублируется.
+// })
+// // так как нам нужен массив, то применяем метод Object.keys() и получаем только еще ключи 
+
+// console.log(Object.keys(uniqueFructs))
+
+
+
+// https://youtu.be/vYuXuHQu2eo 
+
+</script>
+      </body>

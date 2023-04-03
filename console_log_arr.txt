@@ -1,0 +1,6 @@
+const arr = [1,2,3,4,5, {1:'yes', 2: 'no', 3: 22}, true]
+console.log(arr[arr.length-1]); // true
+console.log(arr.length); // 7
+console.log(arr.at(5)); // { '1': 'yes', '2': 'no', '3': 22 }
+console.log(arr[5]); // { '1': 'yes', '2': 'no', '3': 22 }
+console.log(arr[5]); // { '1': 'yes', '2': 'no', '3': 22 }

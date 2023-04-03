@@ -1,0 +1,140 @@
+// FOR
+// const arr = [1,2,3,4]
+// for (i=0; i<=arr.length; i++){
+//     console.log(arr[i])
+// }
+
+// др пример 
+// const joinNumber=(start, finish)=>{
+//     let result = ''
+//     for (let i=start; i<=finish; i++){
+//       result=`${result} ${[i]}`
+//     }
+//      return result
+//     }
+//     console.log(joinNumber(2,5))
+
+// пример с Reverse строки 
+// const reverse=(str)=>{
+//   let result =''
+//   for (let i=0; i<str.length; i++){
+//     result=`${str[i]}${result}`
+//     }
+//   return result
+// }
+// console.log(reverse('hello world'))
+
+// ====================
+// FOR IN 
+// let obj = {
+//     property1: 'one',
+//     property2: 'two',
+//     }
+// prop = 0
+// // создали пустую переменную
+//     for (key in obj ){
+//       if (obj.hasOwnProperty(key)){
+//         console.log(key + ' : ' + obj[key])
+//     }
+// }
+// др пример 
+// const myObj={
+//     name: 'Dima',
+//     age: 33,
+//     hobby: 'Mounting ski',
+//   }
+//   for (const key in myObj){
+//     console.log(key, myObj[key]);
+
+// ====================
+
+// FOR OF
+// const str='good day';
+// for(let result of str){
+//   console.log(result);
+// }
+
+
+
+// ====================
+// WHILE
+// let k=0
+// while (k<10){
+//     console.log(k++)
+// }
+
+// do while
+// let h=0
+// do{
+//     console.log(h++)
+// } while  (h<10)
+//  или : 
+// let i=0
+// do {
+//   console.log(i);
+//   i++
+// } while (i<5)
+
+// др пример
+// const joinNumber=(start, finish)=>{
+//     let result = ''
+//     let i=start
+//   while (i<=finish){
+//     result=`${result} ${[i]}`
+//     i++
+//   }
+//    return result
+//   }
+//   console.log(joinNumber(2,5))
+
+// без назначения пустой переменной. Reverse 
+// function printRevwese(word){
+//     let i=word.length-1;
+//     while (i>=0){
+//       console.log(word[i];
+//       i--
+//     }
+//   }
+//   console.log(printRevwese('hello'))
+
+
+// forEach
+// const presidents = [
+//     {first: 'Georg', last: 'Wahington', born: 1734, died: 1799},
+//     {first: 'Jon', last: 'Adams', born: 1735, died: 1839},
+//     {first: 'Ronald', last: 'Reagan', born: 1914, died: 1987},
+//     {first: 'Gerald', last: 'Ford', born: 1934, died: 1976},
+//     {first: 'Richard', last: 'Nixon', born: 1913  , died: 1983},
+//   ]
+//   presidents.forEach(first=> console.log(first));
+
+
+// MAP
+// const presidents = [
+//     {first: 'Georg', last: 'Wahington', born: 1734, died: 1799},
+//     {first: 'Jon', last: 'Adams', born: 1735, died: 1839},
+//     {first: 'Ronald', last: 'Reagan', born: 1914, died: 1987},
+//     {first: 'Gerald', last: 'Ford', born: 1934, died: 1976},
+//     {first: 'Richard', last: 'Nixon', born: 1913  , died: 1983},
+//   ]
+//   const newPresidents=presidents.map(presidents =>{
+//     return presidents // обязательно стелать возврат. положили в новую перем newPresedents
+//     return `${presidents.first} ${presidents.born}` // так же можно работать со значениями *\- и тп:presidents.born*3
+// })
+// в одну строку
+// const filterBorn = presidents.filter(item => item.born >= 1913)
+//   console.log(newPresidents);
+// FIND
+// const presidents = [
+//     {first: 'Georg', last: 'Wahington', born: 1734, died: 1799},
+//     {first: 'Jon', last: 'Adams', born: 1735, died: 1839},
+//     {first: 'Ronald', last: 'Reagan', born: 1914, died: 1987},
+//     {first: 'Gerald', last: 'Ford', born: 1934, died: 1976},
+//     {first: 'Richard', last: 'Nixon', born: 1913  , died: 1983},
+//   ]
+  
+//   const name= presidents.find(item => item.first === 'Jon')
+//   console.log(name);
+// FINDINDEX
+// const nameIndex= presidents.findIndex(item => item.first === 'Jon')
+// console.log(nameIndex);
